@@ -172,7 +172,7 @@ resource r_deploymentScriptUAMI 'Microsoft.ManagedIdentity/userAssignedIdentitie
 }
 
 //Purview Deployment Script: script location encoded in Base64
-var purviewPSScriptLocation = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0F6dXJlL2F6dXJlLXN5bmFwc2UtYW5hbHl0aWNzLWVuZDJlbmQvbWFpbi9EZXBsb3kvc2NyaXB0cy9QdXJ2aWV3UG9zdERlcGxveS5wczE='
+var purviewPSScriptLocation = 'aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL29sYWZ3cmllZGVuL21pY3Jvc29mdC1wdXJ2aWV3LW5ldHdvcmstaXNvbGF0ZWQtZGVwbG95bWVudC9tYXN0ZXIvc2NyaXB0cy9QdXJ2aWV3UG9zdERlcGxveS5wczE='
 var purviewScriptArguments = '-PurviewAccountID ${ctrlDeployPurview ? m_PurviewDeploy.outputs.purviewAccountID : ''} -PurviewAccountName ${purviewAccountName} -SubscriptionID ${subscription().subscriptionId} -ResourceGroupName ${resourceGroup().name} -UAMIIdentityID ${m_PlatformServicesDeploy.outputs.deploymentScriptUAMIPrincipalID} -ScanEndpoint ${ctrlDeployPurview ? m_PurviewDeploy.outputs.purviewScanEndpoint : ''} -APIVersion ${ctrlDeployPurview ? m_PurviewDeploy.outputs.purviewAPIVersion : ''}  -KeyVaultName ${keyVaultName} -KeyVaultID ${m_PlatformServicesDeploy.outputs.keyVaultID} -NetworkIsolationMode ${networkIsolationMode}'
 
 //CleanUp Deployment Script: script location encoded in Base64
